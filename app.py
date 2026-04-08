@@ -24,6 +24,16 @@ import streamlit as st
 from groq import Groq
 from dotenv import load_dotenv
 
+# ══════════════════════════════════════════════════════════════════
+# PAGE CONFIG (MUST BE FIRST)
+# ══════════════════════════════════════════════════════════════════
+st.set_page_config(
+    page_title="CineRec — Your AI Movie Companion",
+    page_icon="🎬",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
 # Load local .env if present
 load_dotenv()
 
@@ -35,7 +45,9 @@ def get_secret(key, default=""):
     val = os.getenv(key)
     if val: return val
     try:
-        if key in st.secrets: return st.secrets[key]
+        # Check hasattr first to avoid Streamlit warning about missing secrets file
+        if hasattr(st, "secrets") and key in st.secrets: 
+            return st.secrets[key]
     except Exception: pass
     return default
 
@@ -47,14 +59,8 @@ GROQ_MODEL   = "llama-3.1-8b-instant"
 GROQ_API_KEY = get_secret("GROQ_API_KEY", "")
 
 # ══════════════════════════════════════════════════════════════════
-# PAGE CONFIG
+# CONTENT CONFIG
 # ══════════════════════════════════════════════════════════════════
-st.set_page_config(
-    page_title="CineRec — Your AI Movie Companion",
-    page_icon="🎬",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
 
 # ══════════════════════════════════════════════════════════════════
 # MOOD & CONTENT CONFIG
