@@ -39,7 +39,7 @@ def get_secret(key, default=""):
     except Exception: pass
     return default
 
-API_BASE     = get_secret("API_BASE", "https://movie-rec-466x.onrender.com")
+API_BASE     = get_secret("API_BASE", "https://cinerec-ai-backend.onrender.com")
 TMDB_IMG     = "https://image.tmdb.org/t/p/w500"
 GROQ_MODEL   = "llama-3.1-8b-instant"
 
