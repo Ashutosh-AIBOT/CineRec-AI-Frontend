@@ -19,7 +19,7 @@ CineRec is a state-of-the-art movie discovery application that combines a **prem
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/CineRec-AI-Frontend.git
+   git clone https://github.com/Ashutosh-AIBOT/CineRec-AI-Frontend.git
    cd CineRec-AI-Frontend
    ```
 
@@ -38,7 +38,6 @@ CineRec is a state-of-the-art movie discovery application that combines a **prem
    Create a `.streamlit/secrets.toml` file:
    ```toml
    GROQ_API_KEY = "your_groq_api_key"
-   API_BASE = "https://your-backend-url.render.com"
    ```
 
 5. **Run Locally**:
